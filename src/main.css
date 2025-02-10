@@ -33,7 +33,7 @@ body {
 
 #main-container h1 {
   margin: 0;
-  color: #ffffffbb;
+  color: white;
   font-size: 32px;
 }
 
@@ -50,7 +50,7 @@ body {
 }
 
 #zodiac .label {
-  color: #ffffff99;
+  color: #ffffffaa;
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -100,6 +100,7 @@ body {
 }
 
 #date .label {
+  color: #ffffffaa;
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -151,6 +152,7 @@ body {
 }
 
 #content .label {
+  color: #ffffffaa;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -161,11 +163,34 @@ body {
   font-weight: bold;
 }
 
+#content .bottom {
+  flex-grow: 1;
+  padding: 24px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#content .bottom span {
+  display: grid;
+  place-content: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
 #content article {
   text-align: center;
-  flex-grow: 1;
-  padding: 36px;
   font-size: 1.5rem;
   display: grid;
   place-content: center;
+}
+
+.overflow-y-support {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.overflow-y-support::-webkit-scrollbar {
+  display: none;
 }
