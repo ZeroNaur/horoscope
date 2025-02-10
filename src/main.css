@@ -1,0 +1,171 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  background-image: url(/starry-wallpaper.webp);
+  color: white;
+  font-family: monospace;
+}
+
+body {
+  margin: 0;
+  background-color: #000000bb;
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+#main-container h1 {
+  margin: 0;
+  color: #ffffffbb;
+  font-size: 32px;
+}
+
+#zodiac {
+  background-color: #ffffff15;
+  width: 560px;
+  height: max-content;
+  padding: 18px;
+  border: 2px solid white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#zodiac .label {
+  color: #ffffff99;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#zodiac-container {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.zodiac-button {
+  flex-grow: 1;
+  background-color: transparent;
+  padding: 6px;
+  border: 1px solid white;
+  display: grid;
+  place-content: center;
+  color: white;
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.zodiac-button:active {
+  background-color: #ffffff45;
+}
+
+.zodiac-button.chosen {
+  background-color: #aaddff60;
+}
+
+.zodiac-button.no-effect:active {
+  background-color: none;
+}
+
+#date {
+  background-color: #ffffff15;
+  width: 560px;
+  height: 75px;
+  border: 2px solid white;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+#date .label {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+#date input {
+  background-color: #ffffff50;
+  width: 135px;
+  padding-inline: 5px;
+  border: 1px solid #ffffff99;
+  font-size: 1.2rem;
+}
+
+#date button {
+  background-color: #aaddff60;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 12px;
+  display: grid;
+  place-content: center;
+}
+
+#date button:active {
+  opacity: 70%;
+}
+
+#date svg {
+  fill: white;
+  width: 25px;
+}
+
+#content {
+  background-color: #ffffff15;
+  width: 560px;
+  height: 420px;
+  border: 2px solid white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+#content .top {
+  padding-block: 18px;
+  display: flex;
+  border-bottom: 2px solid gray;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+#content .label {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#content .content-date {
+  color: #aaddff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#content article {
+  text-align: center;
+  flex-grow: 1;
+  padding: 36px;
+  font-size: 1.5rem;
+  display: grid;
+  place-content: center;
+}
