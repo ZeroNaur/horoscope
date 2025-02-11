@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Zodiac } from "./component/Zodiac"
-import { getCurrentDate, getCurrentMonth, getCurrentYear, getFetchDateMin, getFetchMonthMin, getFetchYearMin, joinDate, listOfZodiacs } from "./utils";
+import { getFetchDateMin, getFetchMonthMin, getFetchYearMin, getUTCDate, getUTCMonth, getUTCYear, joinDate, listOfZodiacs } from "./utils";
 import { CloseSVG } from "./component/CloseSVG"
 import { SearchSVG } from "./component/SearchSVG"
 import { ZodiacCard } from "./component/ZodiacCard";
@@ -83,9 +83,9 @@ function App() {
           }
           max={
             joinDate(
-              getCurrentYear(),
-              getCurrentMonth(),
-              getCurrentDate()
+              getUTCYear(),
+              getUTCMonth(),
+              getUTCDate()
             )
           }
           onChange={(e) => setChosenDate(e.target.value)}

@@ -19,10 +19,22 @@ export function getCurrentYear() {
   return currentTime.getFullYear();
 }
 
+export function getUTCDate() {
+  return currentTime.getUTCDate();
+}
+
+export function getUTCMonth() {
+  return currentTime.getUTCMonth() + 1;
+}
+
+export function getUTCYear() {
+  return currentTime.getUTCFullYear();
+}
+
 export function getFetchDateMin() {
-  const currentDate = getCurrentDate();
-  const currentMonth = getCurrentMonth();
-  const currentYear = getCurrentYear();
+  const currentDate = getUTCDate();
+  const currentMonth = getUTCMonth();
+  const currentYear = getUTCYear();
 
   if ([1, 3, 5, 7, 8, 10, 12].includes(currentMonth)) {
     if (currentDate === 31) return 1;
