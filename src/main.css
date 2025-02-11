@@ -50,9 +50,25 @@ body {
   gap: calc(var(--main-width) / 60);
 }
 
+#zodiac-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #zodiac .label {
   color: #ffffffaa;
   font-size: calc(var(--main-width) / 35);
+  font-weight: bold;
+}
+
+#zodiac-top button {
+  background-color: #aaddff60;
+  padding: calc(var(--main-width) / 150) calc(var(--main-width) / 50);
+  border: none;
+  border-radius: calc(var(--main-width) / 100);
+  color: lightblue;
+  font-size: calc(var(--main-width) / 41);
   font-weight: bold;
 }
 
@@ -74,14 +90,12 @@ body {
   font-family: inherit;
   font-size: calc(var(--main-width) / 33);
   font-weight: bold;
-}
-
-.zodiac-button:active {
-  background-color: #ffffff45;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 .zodiac-button.chosen {
-  background-color: #aaddff60;
+  color: lightblue;
+  background-color: #aaddff50;
 }
 
 .zodiac-button.no-effect:active {
@@ -107,15 +121,20 @@ body {
 }
 
 #date input {
-  background-color: #ffffff50;
+  background-color: #aaddff50;
   width: calc(var(--main-width) / 4);
   padding-inline: calc(var(--main-width) / 80);
   border: calc(var(--main-width) / 500) solid #ffffff99;
+  color: #aaddff;
   font-size: calc(var(--main-width) / 37);
 }
 
+#date input::-webkit-calendar-picker-indicator {
+  background-color: #aaddff75;
+}
+
 #date button {
-  background-color: #aaddff60;
+  background-color: #aaddff50;
   width: calc(var(--main-width) / 15);
   height: calc(var(--main-width) / 15);
   border: none;
@@ -129,7 +148,7 @@ body {
 }
 
 #date svg {
-  fill: white;
+  fill: lightblue;
   width: calc(var(--main-width) / 25);
 }
 
@@ -194,4 +213,90 @@ body {
 
 .overflow-y-support::-webkit-scrollbar {
   display: none;
+}
+
+#zodiac-modal {
+  background-color: #000000dd;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  position: fixed;
+}
+
+#zodiac-modal > div {
+  background-color: #aaddff35;
+  width: calc(var(--main-width) * 0.85);
+  height: calc(var(--main-width) * 0.85);
+  border-radius: calc(var(--main-width) / 50);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#zodiac-modal > div > .top {
+  width: 100%;
+  padding-block: calc(var(--main-width) / 50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: calc(var(--main-width) / 500) solid #aaddff99;
+}
+
+#close-modal-button {
+  background-color: #aaddff35;
+  width: calc(var(--main-width) / 16);
+  height: calc(var(--main-width) / 16);
+  margin-right: 2%;
+  padding: 0;
+  border: none;
+  border-radius: 100%;
+  display: grid;
+  place-content: center;
+  position: absolute;
+  right: 0;
+}
+
+#close-modal-button svg {
+  fill: #aaddff;
+  width: calc(var(--main-width) / 25);
+}
+
+#zodiac-modal h1 {
+  color: #aaddff;
+  font-size: calc(var(--main-width) / 30);
+}
+
+#zodiac-cards {
+  flex-grow: 1;
+  padding: 2.5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.zodiac-card {
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: calc(var(--main-width) / 100);
+}
+
+.zodiac-card .label {
+  color: #aaddff;
+  font-size: calc(var(--main-width) / 37);
+  font-weight: bold;
+}
+
+.zodiac-card span {
+  color: #aaddffcc;
+  text-align: center;
+  font-size: calc(var(--main-width) / 45);
+}
+
+.zodiac-card svg {
+  fill: #aaddff70;
+  width: calc(var(--main-width) / 12);
 }

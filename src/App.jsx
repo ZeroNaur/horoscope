@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Zodiac } from "./component/Zodiac"
 import { getCurrentDate, getCurrentMonth, getCurrentYear, getFetchDateMin, getFetchMonthMin, getFetchYearMin, joinDate, listOfZodiacs } from "./utils";
-import { SearchSVG } from "./SearchSVG"
+import { CloseSVG } from "./component/CloseSVG"
+import { SearchSVG } from "./component/SearchSVG"
+import { ZodiacCard } from "./component/ZodiacCard";
 
 function App() {
   const [ chosenZodiac, setChosenZodiac ] = useState(null);
@@ -10,6 +12,8 @@ function App() {
   const [ searchedZodiac, setSearchedZodiac ] = useState(null);
   const [ searchedDate, setSearchedDate ] = useState(null); 
   const [ article, setArticle ] = useState("Nothing has been searched yet.");
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const searchHoroscope = async (chosenZodiac, chosenDate) => {
     if (!chosenZodiac) {
@@ -39,10 +43,17 @@ function App() {
 
   return (
     <div id="main-container">
-      <h1>Horoscope for Naura</h1>
+      <h1>Horoscope</h1>
       
       <div id="zodiac">
-        <span className="label">Naura's Zodiac</span>
+        <div id="zodiac-top">
+          <span className="label">Zodiac Sign</span>
+          <button
+            onClick={() => setIsModalVisible(true)}
+          >
+            What's my zodiac sign?
+          </button>
+        </div>
         <div id="zodiac-container">
           {
             listOfZodiacs.map((zodiac, index) => {
@@ -60,7 +71,7 @@ function App() {
       </div>
 
       <div id="date">
-        <span className="label">Which date's to check, Naura?</span>
+        <span className="label">Which date's to check?</span>
         <input
           type="date"
           min={
@@ -91,17 +102,15 @@ function App() {
           <span className="label">
             {
               searchedZodiac !== null ?
-                "Naura's horoscope for"
+                searchedDate !== null ?
+                  "Naura's horoscope for"
+                : "Naura's horoscope for..."
               : "Search Result"
             }
           </span>
           <span className="content-date">
             {
-              searchedZodiac !== null ?
-                searchedDate !== null ?
-                  searchedDate
-                : "..."
-              : null
+              searchedDate
             }
           </span>
         </div>
@@ -112,6 +121,41 @@ function App() {
           </article>
         </div>
       </div>
+      
+      {
+        isModalVisible &&
+        <div
+        id="zodiac-modal"
+        onClick={() => setIsModalVisible(false)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="top">
+              <h1>Zodiac Sign List</h1>
+              <button
+                id="close-modal-button"
+                onClick={() => setIsModalVisible(false)}
+              >
+                <CloseSVG />
+              </button>
+            </div>
+            <div id="zodiac-cards">
+              {
+                listOfZodiacs.map((zodiac, index) => {
+                  return (
+                    <ZodiacCard
+                      key={index + zodiac}
+                      type={zodiac}
+                    />
+                  )
+                })
+              }
+            </div>
+          </div>
+        </div>
+      }
+
     </div>
   )
 }

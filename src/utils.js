@@ -65,3 +65,34 @@ export function joinDate(year, month, date) {
 
   return `${year}-${filteredMonth}-${date}`;
 }
+
+export function getZodiacTimeRange(type) {
+  switch (type) {
+    case "aquarius":
+      return "Jan 20 - Feb 18"
+    case "aries":
+      return "Mar 21 - Apr 19"
+    case "cancer":
+      return "Jun 22 - Jul 22"
+    case "capricorn":
+      return "Dec 22 - Jan 19"
+    case "gemini":
+      return "May 21 - Jun 21"
+    case "leo":
+      return "Jul 23 - Aug 22"
+    case "libra":
+      return "Sep 23 - Oct 23"
+    case "pisces":
+      return "Feb 19 - Mar 20"
+    case "sagittarius":
+      return "Nov 22 - Dec 21"
+    case "scorpio":
+      return "Oct 24 - Nov 21"
+    case "taurus":
+      return "Apr 20 - May 20"
+    case "virgo":
+      return "Aug 23 - Sep 22"
+    default:
+      return "error"
+  }
+}
