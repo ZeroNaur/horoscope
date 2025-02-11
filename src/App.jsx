@@ -43,11 +43,11 @@ function App() {
 
   return (
     <div id="main-container">
-      <h1>Horoscope</h1>
+      <h1>Horoscope for Naura</h1>
       
       <div id="zodiac">
         <div id="zodiac-top">
-          <span className="label">Zodiac Sign</span>
+          <span className="label">Naura's Zodiac Sign</span>
           <button
             onClick={() => setIsModalVisible(true)}
           >
@@ -71,7 +71,7 @@ function App() {
       </div>
 
       <div id="date">
-        <span className="label">Which date's to check?</span>
+        <span className="label">Which date's to check, Naura?</span>
         <input
           type="date"
           min={
