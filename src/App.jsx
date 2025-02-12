@@ -44,7 +44,7 @@ function App() {
       else {
         setSearchedZodiac(chosenZodiac);
         setSearchedDate(translateTime(chosenDate));
-        setArticle("Data is not ready for this date, please try again later.");
+        setArticle("Data for this date is not ready yet, please try again later.");
       }
     }
     catch (error) {
