@@ -7,18 +7,6 @@ export const listOfZodiacs = [
 
 const currentTime = new Date();
 
-export function getCurrentDate() {
-  return currentTime.getDate();
-}
-
-export function getCurrentMonth() {
-  return currentTime.getMonth() + 1;
-}
-
-export function getCurrentYear() {
-  return currentTime.getFullYear();
-}
-
 export function getUTCDate() {
   return currentTime.getUTCDate();
 }
@@ -29,43 +17,6 @@ export function getUTCMonth() {
 
 export function getUTCYear() {
   return currentTime.getUTCFullYear();
-}
-
-export function getFetchDateMin() {
-  const currentDate = getUTCDate();
-  const currentMonth = getUTCMonth();
-  const currentYear = getUTCYear();
-
-  if ([1, 3, 5, 7, 8, 10, 12].includes(currentMonth)) {
-    if (currentDate === 31) return 1;
-  }
-
-  if ([4, 6, 9, 11].includes(currentMonth)) {
-    if (currentDate === 30) return 1;
-  }
-
-  if (currentMonth === 2) {
-    if (!currentYear % 4) {
-      if (currentDate === 28) {
-        return 29;
-      }
-      if (currentDate === 29) {
-        return 1;
-      }
-    }
-
-    if (currentDate === 28) return 1;
-  }
-
-  return getCurrentDate() + 1;
-}
-
-export function getFetchMonthMin() {
-  return getCurrentMonth();
-}
-
-export function getFetchYearMin() {
-  return getCurrentYear() - 1;
 }
 
 export function joinDate(year, month, date) {
@@ -108,3 +59,41 @@ export function getZodiacTimeRange(type) {
       return "error"
   }
 }
+
+export function translateMonth(code) {
+  switch (code) {
+    case "01":
+      return "Jan";
+    case "02":
+      return "Feb";
+    case "03":
+      return "Mar";
+    case "04":
+      return "Apr";
+    case "05":
+      return "May";
+    case "06":
+      return "Jun";
+    case "07":
+      return "Jul";
+    case "08":
+      return "Aug";
+    case "09":
+      return "Sep";
+    case "10":
+      return "Oct";
+    case "11":
+      return "Nov";
+    case "12":
+      return "Dec";
+  }
+}
+
+export function translateTime(time) {
+  const timeArray = time.split("-");
+
+  return ( 
+    `${translateMonth(timeArray[1])} ${timeArray[2]}, ${timeArray[0]}`
+  )
+}
+

@@ -63,12 +63,11 @@ body {
 }
 
 #zodiac-top button {
-  background-color: #aaddff60;
-  padding: calc(var(--main-width) / 150) calc(var(--main-width) / 50);
+  background-color: #aaddff35;
+  padding: calc(var(--main-width) / 100) calc(var(--main-width) / 50);
   border: none;
-  border-radius: calc(var(--main-width) / 100);
   color: lightblue;
-  font-size: calc(var(--main-width) / 41);
+  font-size: calc(var(--main-width) / 40);
   font-weight: bold;
 }
 

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Zodiac } from "./component/Zodiac"
-import { getFetchDateMin, getFetchMonthMin, getFetchYearMin, getUTCDate, getUTCMonth, getUTCYear, joinDate, listOfZodiacs } from "./utils";
+import { getUTCDate, getUTCMonth, getUTCYear, joinDate, listOfZodiacs, translateTime } from "./utils";
 import { CloseSVG } from "./component/CloseSVG"
 import { SearchSVG } from "./component/SearchSVG"
 import { ZodiacCard } from "./component/ZodiacCard";
@@ -25,16 +25,27 @@ function App() {
       setArticle("Please choose a Date to search, Naura.")
       return;
     }
-    
 
     try {
       setSearchedZodiac("Loading...")
       setArticle("Loading...")
+
       const response = await fetch(`https://my-cors-proxy.chronodeia.workers.dev/?sign=${chosenZodiac}&date=${chosenDate}`);
+
       const data = await response.json();
-      setSearchedZodiac(chosenZodiac);
-      setSearchedDate(data.data.date);
-      setArticle(data.data.horoscope_data);
+
+      console.log(translateTime(chosenDate) === data.data.date)
+
+      if (translateTime(chosenDate) === data.data.date) {
+        setSearchedZodiac(chosenZodiac);
+        setSearchedDate(data.data.date);
+        setArticle(data.data.horoscope_data);  
+      }
+      else {
+        setSearchedZodiac(chosenZodiac);
+        setSearchedDate(translateTime(chosenDate));
+        setArticle("Data is not ready for this date, please try again later.");
+      }
     }
     catch (error) {
       console.error("Error: " + error);
@@ -76,9 +87,9 @@ function App() {
           type="date"
           min={
             joinDate(
-              getFetchYearMin(),
-              getFetchMonthMin(),
-              getFetchDateMin()
+              getUTCYear() - 1,
+              getUTCMonth(),
+              getUTCDate()
             )
           }
           max={
