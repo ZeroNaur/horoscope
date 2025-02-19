@@ -17,12 +17,12 @@ function App() {
 
   const searchHoroscope = async (chosenZodiac, chosenDate) => {
     if (!chosenZodiac) {
-      setArticle("Please choose a Zodiac to search, Naura.");
+      setArticle("Please choose a Zodiac to search.");
       return;
     }
 
     if (!chosenDate) {
-      setArticle("Please choose a Date to search, Naura.")
+      setArticle("Please choose a Date to search.")
       return;
     }
 
@@ -44,7 +44,7 @@ function App() {
       else {
         setSearchedZodiac(chosenZodiac);
         setSearchedDate(translateTime(chosenDate));
-        setArticle("Data for this date is not ready yet, please try again later.");
+        setArticle("Data for this date is not found.");
       }
     }
     catch (error) {
@@ -58,7 +58,7 @@ function App() {
       
       <div id="zodiac">
         <div id="zodiac-top">
-          <span className="label">Naura's Zodiac Sign</span>
+          <span className="label">Zodiac Sign</span>
           <button
             onClick={() => setIsModalVisible(true)}
           >
@@ -82,7 +82,7 @@ function App() {
       </div>
 
       <div id="date">
-        <span className="label">Which date's to check, Naura?</span>
+        <span className="label">Which date's to check?</span>
         <input
           type="date"
           min={
