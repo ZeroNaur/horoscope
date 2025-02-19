@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div id="main-container">
-      <h1>Horoscope for Naura</h1>
+      <h1>Horoscope for Muzzy</h1>
       
       <div id="zodiac">
         <div id="zodiac-top">
