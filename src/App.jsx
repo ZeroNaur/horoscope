@@ -114,8 +114,8 @@ function App() {
             {
               searchedZodiac !== null ?
                 searchedDate !== null ?
-                  "Naura's horoscope for"
-                : "Naura's horoscope for..."
+                  "Muzzy's horoscope for"
+                : "Muzzy's horoscope for..."
               : "Search Result"
             }
           </span>
